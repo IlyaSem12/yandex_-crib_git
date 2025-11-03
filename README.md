@@ -81,12 +81,10 @@ ref: refs/heads/master # в файле вот такая ссылка
 
 ```mermaid
 graph LR
-    A[untracked<br/>(неотслеживаемый)] -- "git add" --> B[staged<br/>(в списке на коммит) + tracked]
-    B -- "git commit" --> C[tracked<br/>(отслеживаемый)]
-    C -- "Изменения" --> D[modified<br/>(изменённый)]
+    A[untracked\n(неотслеживаемый)] -- "git add" --> B[staged\n(в списке на коммит)\n+ tracked]
+    B -- "git commit" --> C[tracked\n(отслеживаемый)]
+    C -- "Изменения" --> D[modified\n(изменённый)]
     D -- "git add" --> B
-    D -- "Изменения" --> D
-    A -- "git add" --> B
     C -- "Изменения" --> D
 ```
 
