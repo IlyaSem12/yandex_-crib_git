@@ -80,12 +80,13 @@ ref: refs/heads/master # в файле вот такая ссылка
 ## Статусы файлов в Git
 
 ```mermaid
-graph LR
-    A[untracked\n(неотслеживаемый)] -- "git add" --> B[staged\n(в списке на коммит)\n+ tracked]
-    B -- "git commit" --> C[tracked\n(отслеживаемый)]
-    C -- "Изменения" --> D[modified\n(изменённый)]
-    D -- "git add" --> B
-    C -- "Изменения" --> D
+%% Состояния файлов в Git и переходы между ними
+graph LR;
+  untracked["untracked (неотслеживаемый)"] -- "git add" --> staged["staged (в списке на коммит) + tracked"];
+  staged -- "git commit" --> tracked["tracked (отслеживаемый)"];
+  tracked -- "Изменения" --> modified["modified (изменённый)"];
+  modified -- "git add" --> staged;
+  tracked -- "Изменения" --> modified;
 ```
 
 Одна из ключевых задач Git — отслеживать изменения файлов в репозитории. Для этого каждый файл помечается каким-либо статусом. Рассмотрим основные.
